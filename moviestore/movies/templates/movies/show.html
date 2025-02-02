@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="p-3">
+  <div class="container">
+    <div class="row mt-3">
+      <div class="col-md-6 mx-auto mb-3">
+        {% if movie %}
+          <h2>{{ movie.name }}</h2>
+          <hr />
+          <p><b>Description:</b> {{ movie.description }}</p>
+          <p><b>Price:</b> ${{ movie.price }}</p>
+        {% else %}
+          <h2>Movie Not Found</h2>
+          <hr />
+          <p>Sorry, the movie you're looking for doesn't exist.</p>
+        {% endif %}
+      </div>
+      <div class="col-md-6 mx-auto mb-3 text-center">
+        <img src="{% static 'img/about.jpg' %}" class="rounded" />
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

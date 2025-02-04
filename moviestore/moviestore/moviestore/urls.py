@@ -25,3 +25,4 @@ urlpatterns = [
     path('movies/', include('movies.urls')),
 
 ]
+

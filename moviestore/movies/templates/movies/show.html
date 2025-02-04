@@ -5,11 +5,11 @@
   <div class="container">
     <div class="row mt-3">
       <div class="col-md-6 mx-auto mb-3">
-        {% if movie %}
-          <h2>{{ movie.name }}</h2>
+        {% if template_data.movie %}
+          <h2>{{ template_data.movie.name }}</h2>
           <hr />
-          <p><b>Description:</b> {{ movie.description }}</p>
-          <p><b>Price:</b> ${{ movie.price }}</p>
+          <p><b>Description:</b> {{ template_data.movie.description }}</p>
+          <p><b>Price:</b> ${{ template_data.movie.price }}</p>
         {% else %}
           <h2>Movie Not Found</h2>
           <hr />

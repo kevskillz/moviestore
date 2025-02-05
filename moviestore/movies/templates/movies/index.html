@@ -1,38 +1,150 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-<div class="p-3">
+<style>
+  body {
+    background: linear-gradient(135deg, #4b0000, #8b0000); /* Red gradient background */
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+
+  .container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  /* Header Styling */
+  h2 {
+    font-family: 'Arial', sans-serif;
+    font-size: 3rem; /* Keeping the same size */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6); /* Add shadow for a more polished look */
+    background: linear-gradient(135deg, #0e2539, #2d4b60, #0e2539); /* Gradient background for the header */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Add subtle shadow around the header */
+  }
+
+  /* Card Styling for Movies */
+  .card {
+    background-color: rgba(0, 0, 0, 0.7); /* Dark background for the card */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .card-img-top {
+    object-fit: cover;
+    max-height: 300px;
+  }
+
+  .card-body {
+    padding: 15px;
+  }
+
+  .btn-dark {
+    background-color: #000;
+    border: none;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+
+  .btn-dark:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Search bar and button styles */
+  .search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+  }
+
+  .input-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px; /* Curved corners */
+    overflow: hidden;
+  }
+
+  /* The search input */
+  .form-control {
+    background-color: white;  /* White background for the input */
+    color: black;  /* Text color */
+    border: none;
+    border-radius: 30px 0 0 30px; /* Curved left corners */
+    padding: 15px;
+    width: 350px;
+  }
+
+  /* The search button */
+  .btn-search {
+    background-color: #000; /* Black background for the button */
+    color: white;  /* White text color */
+    border: none;
+    border-radius: 0 30px 30px 0; /* Curved right corners */
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  }
+
+  /* Hover and active states for the button */
+  .btn-search:hover {
+    transform: scale(1.05);  /* Raise the button */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* Glowing effect */
+    background-color: #333; /* Darker shade on hover */
+  }
+
+  .btn-search:active {
+    transform: scale(0.98); /* Slightly shrink the button when clicked */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Glowing effect when clicked */
+  }
+
+  /* For the movie cards */
+  .input-group-text {
+    background-color: transparent;  /* Remove background for the text part */
+    color: transparent;
+  }
+
+  .input-group .form-control {
+    background-color: #fff;
+    color: black;
+    border-left: none;
+  }
+</style>
+
+<div class="p-5">
   <div class="container">
     <div class="row mt-3">
       <div class="col mx-auto mb-3">
-        <h2>List of Movies</h2>
+        <!-- Updated Movie List Header with Gradient and Shadow -->
+        <h2 class="display-4 text-center">List of Movies</h2>
         <hr />
-        <p class="card-text">
-          <form method="GET">
-            <div class="row">
-              <div class="col-auto">
-                <div class="input-group-text">
-                  Search</div>
-                <input type="text" class="from-control" name="search">
-                </div>
-              </div>
-            </div class="col-auto">
-                <button class="btn bg-dark text-white"type="submit">Search</button>
-            </div>
+        <form method="GET" class="search-form">
+          <div class="input-group">
+            <input type="text" class="form-control" name="search" placeholder="Search movies...">
+            <button type="submit" class="btn btn-search">Search</button>
           </div>
         </form>
-      </p>      
       </div>
     </div>
+
+    <!-- Movie Cards Section -->
     <div class="row">
       {% for movie in template_data.movies %}
-      <div class="col-md-4 col-lg-3 mb-2">
-        <div class="p-2 card align-items-center pt-4">
-          <img src="{{ movie.image.url }}"
-            class="card-img-top rounded img-card-200">
+      <div class="col-md-4 col-lg-3 mb-4">
+        <div class="card p-3">
+          <img src="{{ movie.image.url }}" class="card-img-top img-fluid rounded" style="max-height: 300px; object-fit: contain;">
           <div class="card-body text-center">
-              <a href="{% url 'movies.show' id=movie.id %}"
-              class="btn bg-dark text-white">
+            <a href="{% url 'movies.show' id=movie.id %}" class="btn btn-dark text-white">
               {{ movie.name }}
             </a>
           </div>
@@ -43,4 +155,3 @@
   </div>
 </div>
 {% endblock content %}
-

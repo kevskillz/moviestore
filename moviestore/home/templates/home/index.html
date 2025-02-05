@@ -1,20 +1,143 @@
 {% extends 'base.html' %}
 {% block content %}
-<header class="masthead bg-index text-white text-center
-           py-4">
-  <div class="container d-flex align-items-center flex-
-  column pt-2">
+{% load static %}
+
+<style>
+  body {
+    background: linear-gradient(135deg, #4b0000, #8b0000);
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+  .masthead {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+  }
+  .masthead h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 2px 7px 4px rgba(0, 0, 0, 0.7);
+  }
+  .masthead p {
+    font-size: 1.5rem;
+    opacity: 0.9;
+    text-shadow: 1px 7px 4px rgba(0, 0, 0, 0.5);
+  }
+  .welcome-section {
+    text-align: center;
+    padding: 40px 20px;
+  }
+  .welcome-section h4 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 1px 7px 5px rgba(0, 0, 0, 0.7);
+  }
+  .search-section {
+    text-align: center;
+    margin-top: 30px;
+  }
+  .search-bar {
+    max-width: 800px;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .search-bar input {
+    height: 60px;
+    font-size: 1.25rem;
+    padding: 0.75rem;
+    width: 75%;
+    border-radius: 5px 0 0 5px;
+    border: 2px solid #fff;
+    outline: none;
+    background-color: white !important; /* Ensure white background even when idle */
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Focus effect with white background and border */
+  .search-bar input:focus, .search-bar input:active {
+    background-color: white !important; /* Keep background white when clicked */
+    width: 85%; /* Expand width on focus */
+    border-color: #FF5733; /* Glowing border on focus */
+    box-shadow: 0 0 10px rgba(255, 87, 51, 0.6); /* Glowing effect */
+  }
+
+  /* Slight background color change on typing for valid input */
+  .search-bar input:valid {
+    background-color: rgba(255, 87, 51, 0.1); /* Slight background change */
+    border-color: #FF5733; /* Glowing effect */
+  }
+
+  .search-bar button {
+    height: 60px;
+    font-size: 1.25rem;
+    width: 20%;
+    background: linear-gradient(  180deg, #0e2539, #000000, #0b273a);
+    color: white;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease;
+  }
+  .search-bar button:hover {
+    background-color: #000000;
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
+  }
+  .search-bar button:active {
+    transform: scale(0.95);
+  }
+
+  .cool-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 40px;
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, #FF5733, #C70039);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(255, 87, 51, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  .cool-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(255, 87, 51, 0.5);
+  }
+  .cool-button:active {
+    transform: scale(0.95);
+  }
+</style>
+
+<header class="masthead">
+  <div class="container">
     <h2>Movies Store</h2>
     <p>Your Ticket to Unlimited Entertainment!</p>
   </div>
 </header>
-<div class="p-3">
-  <div class="container">
-    <div class="row mt-3">
-      <div class="col mx-auto text-center mb-3">
-        <h4>Welcome to the best movie store!!</h4>
-      </div>
-    </div>
-  </div>
+
+<div class="welcome-section">
+  <h4>Welcome to the Best Movie Store!!!</h4>
 </div>
+
+<!-- Search Bar Section -->
+<div class="search-section">
+  <form class="search-bar" method="GET" action="{% url 'movies.index' %}">
+    <input type="text" name="search" placeholder="Search for movies..." value="{{ request.GET.search }}">
+    <button type="submit">Search</button>
+  </form>
+</div>
+
+<!-- Cool Button to Movies Page -->
+<div class="text-center">
+  <a href="{% url 'movies.index' %}" class="cool-button">
+    Explore the Movies Now!
+  </a>
+</div>
+
 {% endblock content %}

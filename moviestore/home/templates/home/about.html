@@ -1,37 +1,51 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-<div class="p-3">
-  <div class="container">
-    <div class="row mt-3">
-      <div class="col-md-6 mx-auto mb-3">
-        <h2>About</h2>
-        <hr />
-        <p>
-           At Movies Store, we offer a vast digital library
-           that spans across genres, ensuring there's
-           something for every movie lover. Browse our
-           extensive collection of films, including the
-           latest releases, timeless classics, and hidden
-           gems. With just a few clicks, you can rent or
-           purchase your favorite titles and instantly
-           stream them in high-definition quality.
-        </p>
-        <p>
-          Discover the convenience of our digital platform,
-          where you have the flexibility to watch movies
-          on your preferred device, whether it's a smart
-          TV, tablet, or smartphone. With our intuitive
-          search and recommendation features, finding your
-          next movie night pick has never been easier.
-        </p>
-      </div>
-      <div class="col-md-6 mx-auto mb-3 text-center">
-        <img src="{% static 'img/about.jpg' %}"
-             class="max-width-100"
-             alt="about" />
-      </div>
-    </div>
+
+<style>
+  body {
+    background: linear-gradient(135deg, #4b0000, #8b0000);
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+  .about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 50px 20px;
+  }
+  .about-container h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  .about-container p {
+    max-width: 700px;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+  .about-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
+    margin-top: 20px;
+  }
+</style>
+
+<div class="about-container">
+  <h2>About Movies Store</h2>
+  <hr style="width: 50%; border-top: 2px solid white; margin-bottom: 20px;" />
+  <p>
+    At <strong>Movies Store</strong>, we offer a vast digital library spanning across genres, ensuring there’s something for every movie lover. Browse our extensive collection of films, including the latest releases, timeless classics, and hidden gems.
+  </p>
+  <p>
+    With just a few clicks, you can rent or purchase your favorite titles and instantly stream them in high-definition quality. Enjoy the flexibility to watch on your preferred device—smart TV, tablet, or smartphone. Our intuitive search and recommendation features make finding your next movie night pick effortless.
+  </p>
+  <div class="about-image">
+    <img src="{% static 'img/newlogo.jpg' %}" alt="About Movies Store">
   </div>
 </div>
+
 {% endblock content %}

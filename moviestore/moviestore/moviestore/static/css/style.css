@@ -1,35 +1,50 @@
-.bg-index{
-  background: url("../img/background.jpg") no-repeat
-    fixed;
-  background-size: 100% auto;
+/* Ensure the body takes full height and has no default margin */
+html, body {
+  height: 100%;
+  margin: 0;
 }
 
-.navbar a.nav-link {
-  color: #FFFEF6 !important;
-}
-.bg-dark {
-  background-color: #2E2E2E !important;
+/* Flexbox layout to make the footer stay at the bottom */
+body {
+  display: flex;
+  flex-direction: column;
 }
 
+/* This allows the main content to grow and fill remaining space */
+main {
+  flex: 1;
+}
+
+/* Footer Styles */
 .ms-footer {
   background-color: #202020;
 }
+
 .ms-footer p {
   color: #7F7F7F;
   font-size: 13px;
 }
+
 .ms-footer a:hover {
   color: #6ab43e;
   text-decoration: none;
 }
-.ms-footer-bottom span{
+
+.ms-footer-bottom span {
   font-size: 13px;
   line-height: 38px;
 }
+
 .ms-footer-bottom a {
   color: #6ab43e;
   text-decoration: none;
 }
+
 .ms-footer-bottom a:hover {
   color: #fff;
+}
+
+.ms-footer-bottom {
+  background-color: #2E2E2E; /* Similar to bg-dark */
+  padding: 15px 0;
 }

@@ -1,40 +1,58 @@
-.bg-index{
-  background: url("../img/background.jpg") no-repeat
-    fixed;
-  background-size: 100% auto;
+/* Ensure the page takes up the full height */
+html, body {
+  height: 100%;
+  margin: 0; /* Remove default margin */
 }
 
-.navbar a.nav-link {
-  color: #FFFEF6 !important;
-}
-.bg-dark {
-  background-color: #2E2E2E !important;
+/* Use flexbox layout for the body */
+body {
+  display: flex;
+  flex-direction: column;
 }
 
+/* Make content section expand to fill available space */
+main {
+  flex: 1;
+}
+
+/* Footer styling */
 .ms-footer {
   background-color: #202020;
 }
+
 .ms-footer p {
   color: #7F7F7F;
   font-size: 13px;
 }
+
 .ms-footer a:hover {
   color: #6ab43e;
   text-decoration: none;
 }
-.ms-footer-bottom span{
+
+.ms-footer-bottom span {
   font-size: 13px;
   line-height: 38px;
 }
+
 .ms-footer-bottom a {
   color: #6ab43e;
   text-decoration: none;
 }
+
 .ms-footer-bottom a:hover {
   color: #fff;
 }
+
+/* Footer bottom */
+.ms-footer-bottom {
+  background-color: #2E2E2E; /* Consistent with bg-dark */
+  padding: 15px 0;
+}
+
+/* Images styling */
 .img-card-200 {
-  width : fit-content;
+  width: fit-content;
   max-height: 200px;
 }
 
@@ -43,3 +61,18 @@
   max-height: 400px;
 }
 
+/* Background image for index page */
+.bg-index {
+  background: url("../img/background.jpg") no-repeat fixed;
+  background-size: 100% auto;
+}
+
+/* Navbar link color */
+.navbar a.nav-link {
+  color: #FFFEF6 !important;
+}
+
+/* Override dark background */
+.bg-dark {
+  background-color: #2E2E2E !important;
+}

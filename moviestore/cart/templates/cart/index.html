@@ -2,6 +2,144 @@
 {% block content %}
 {% load static %}
 {% load cart_filters %}
+<!-- Include Google Fonts for a premium look -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    background: linear-gradient(135deg, #4b0000, #8b0000);
+    font-family: 'Roboto Slab', serif; /* Premium serif font */
+    color: white;
+  }
+
+  .container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif; /* Elegant, refined font */
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    margin-bottom: 30px;
+    background: linear-gradient(135deg, #0e2539, #2d4b60, #0e2539);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .table-container {
+    background-color: rgba(0, 0, 0, 0.5); /* Dark transparent background for table */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    margin-top: 30px;
+  }
+
+  .table {
+    background-color: rgba(0, 0, 0, 0.7); /* Dark table background */
+    border-radius: 10px;
+    color: white;
+    border: none;
+    font-size: 1.1rem;
+    font-family: 'Roboto Slab', serif;
+  }
+
+  .table th, .table td {
+    padding: 12px 18px;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 2px solid #444;
+  }
+
+  .table th {
+    background-color: #2d4b60; /* Dark blue header */
+    color: #f1f1f1;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+  }
+
+  .table td {
+    background-color: #f5f5dc; /* Beige background for rows */
+    color: #333; /* Darker text color to contrast the beige */
+    font-size: 1.1rem;
+    font-weight: 300;
+  }
+
+  .table tr:nth-child(odd) td {
+    background-color: #f5f5dc; /* Keeping the beige for odd rows */
+  }
+
+  .table-striped tbody tr:hover {
+    background-color: transparent; /* Remove hover effect (no color change) */
+    cursor: default; /* Remove the pointer cursor */
+    transform: none; /* Remove the scale effect */
+  }
+
+  .button-container {
+    background-color: rgba(0, 0, 0, 0.5); /* Dark transparent background just behind the buttons */
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn-outline-secondary {
+    background-color: #28A745; /* Green for payment */
+    border-color: #28A745;
+    color: white;
+    font-size: 1.2rem;
+    font-family: 'Roboto Slab', serif;
+    padding: 12px 25px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .btn-outline-secondary:hover {
+    background-color: #218838; /* Darken green on hover */
+    border-color: #218838;
+  }
+
+  .btn-danger {
+    background-color: #FF5733; /* Orange for removal */
+    border: none;
+    font-size: 1.2rem;
+    font-family: 'Roboto Slab', serif;
+    padding: 12px 25px;
+    border-radius: 5px;
+  }
+
+  .btn-danger:hover {
+    background-color: #C14D2A; /* Darken on hover */
+  }
+
+  .text-end {
+    text-align: right;
+    margin-top: 20px;
+  }
+
+  hr {
+    border-color: #FF5733;
+    margin: 20px 0;
+  }
+
+  .cart-total {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #28A745; /* Matching color with the button for confirmation */
+  }
+</style>
+
 <div class="p-3">
   <div class="container">
     <div class="row mt-3">
@@ -10,8 +148,10 @@
         <hr />
       </div>
     </div>
-    <div class="row m-1">
-      <table class="table table-bordered table-striped text-center">
+
+    <!-- Table with semi-transparent background box -->
+    <div class="table-container">
+      <table class="table table-bordered table-striped">
         <thead>
           <tr>
             <th scope="col">ID</th>
@@ -26,23 +166,23 @@
             <td>{{ movie.id }}</td>
             <td>{{ movie.name }}</td>
             <td>${{ movie.price }}</td>
-            <td>{{request.session.cart|get_quantity:movie.id }}
-            </td>
+            <td>{{request.session.cart|get_quantity:movie.id }}</td>
           </tr>
           {% endfor %}
         </tbody>
       </table>
     </div>
-    <div class="row">
-      <div class="text-end">
-        <a class="btn btn-outline-secondary mb-2"><b>Total to pay:</b> ${{ template_data.cart_total }}</a>
-        {% if template_data.movies_in_cart|length > 0 %}
+
+    <!-- Container for Pay and Empty Cart buttons -->
+    <div class="button-container">
+      <a class="btn btn-outline-secondary mb-2"><b>Total to Pay:</b> ${{ template_data.cart_total }}</a>
+      {% if template_data.movies_in_cart|length > 0 %}
         <a href="{% url 'cart.clear' %}">
-          <button class="btn btn-danger mb-2">Remove all movies from Cart</button>
+          <button class="btn btn-danger mb-2">Empty Cart</button>
         </a>
-        {% endif %}
-      </div>
+      {% endif %}
     </div>
+
   </div>
 </div>
 {% endblock content %}

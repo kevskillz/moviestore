@@ -64,10 +64,6 @@
     border-color: #FF5733;
     box-shadow: 0 0 10px rgba(255, 87, 51, 0.6);
   }
-  .search-bar input:valid {
-    background-color: rgba(255, 87, 51, 0.1);
-    border-color: #FF5733;
-  }
   .search-bar button {
     height: 60px;
     font-size: 1.25rem;
@@ -111,6 +107,7 @@
     justify-content: center;
     gap: 20px;
     margin-top: 20px;
+    flex-wrap: wrap;
   }
   .movie-card {
     text-align: center;
@@ -118,11 +115,40 @@
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 200px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out;
   }
   .movie-card img {
-    width: 150px;
-    height: auto;
+    width: 100%;  /* Make the image fill the width of its container */
+    height: 300px;  /* Set a fixed height for all images */
+    object-fit: cover;  /* This ensures that the image is cropped to fit without distortion */
     border-radius: 5px;
+  }
+  .movie-card h5 {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 10px;
+    position: relative;
+    z-index: 1;
+  }
+  .movie-card h5::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+    border-radius: 5px;
+  }
+  .movie-card h5:hover {
+    color: #C70039;
+    text-decoration: underline;
   }
 </style>
 
@@ -163,8 +189,6 @@
         </a>
         <h5>{{ movie.name }}</h5>
       </div>
-    {% empty %}
-      <p>No movies available.</p>
     {% endfor %}
   </div>
 </div>

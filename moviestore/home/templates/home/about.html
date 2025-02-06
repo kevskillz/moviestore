@@ -2,12 +2,16 @@
 {% block content %}
 {% load static %}
 
+<!-- Include Google Fonts for a premium look -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
   body {
-    background: linear-gradient(135deg, #4b0000, #8b0000);
+    background: linear-gradient(135deg, #4b0000, #8b0000); /* Deep red gradient background */
     color: white;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto Slab', serif; /* Premium serif font */
   }
+
   .about-container {
     display: flex;
     flex-direction: column;
@@ -15,32 +19,56 @@
     text-align: center;
     padding: 50px 20px;
   }
+
   .about-container h2 {
+    font-family: 'Playfair Display', serif; /* Elegant font for headings */
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 15px;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
+    background: linear-gradient(135deg, #0e2539, #2d4b60, #0e2539);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   }
+
   .about-container p {
-    max-width: 700px;
-    font-size: 1.2rem;
+    max-width: 800px;
+    font-size: 1.4rem; /* Increased font size */
+    font-weight: 300;
     margin-bottom: 15px;
+    line-height: 1.6;
+    text-align: center; /* Centered text */
+    background-color: rgba(0, 0, 0, 0.6); /* Transparent black background */
+    padding: 30px; /* Increased padding for more space around text */
+    border-radius: 8px; /* Rounded corners */
   }
+
+  .about-container p strong {
+    font-weight: bold;
+  }
+
   .about-image img {
     width: 100%;
     max-width: 500px;
     border-radius: 10px;
-    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Added drop shadow to the image */
     margin-top: 20px;
+  }
+
+  .about-container hr {
+    width: 50%;
+    border-top: 2px solid white;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
   }
 </style>
 
 <div class="about-container">
   <h2>About Movies Store</h2>
-  <hr style="width: 50%; border-top: 2px solid white; margin-bottom: 20px;" />
+  <hr />
   <p>
     At <strong>Movies Store</strong>, we offer a vast digital library spanning across genres, ensuring there’s something for every movie lover. Browse our extensive collection of films, including the latest releases, timeless classics, and hidden gems.
-  </p>
-  <p>
     With just a few clicks, you can rent or purchase your favorite titles and instantly stream them in high-definition quality. Enjoy the flexibility to watch on your preferred device—smart TV, tablet, or smartphone. Our intuitive search and recommendation features make finding your next movie night pick effortless.
   </p>
   <div class="about-image">

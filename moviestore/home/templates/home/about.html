@@ -2,65 +2,102 @@
 {% block content %}
 {% load static %}
 
-<!-- Include Google Fonts for a premium look -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
-
 <style>
   body {
-    background: linear-gradient(135deg, #4b0000, #8b0000); /* Deep red gradient background */
+    background: linear-gradient(135deg, #2c3e50, #34495e);
     color: white;
-    font-family: 'Roboto Slab', serif; /* Premium serif font */
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
   }
 
+  /* Masthead Section */
+  .masthead {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 20px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-bottom: 5px solid #C70039;
+  }
+
+  .masthead h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #FF5733;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+  }
+
+  .masthead p {
+    font-size: 1.6rem;
+    opacity: 0.9;
+    text-shadow: 1px 3px 5px rgba(0, 0, 0, 0.6);
+    font-weight: 500;
+  }
+
+  /* About Section */
   .about-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 50px 20px;
+    padding: 80px 20px;
   }
 
   .about-container h2 {
-    font-family: 'Playfair Display', serif; /* Elegant font for headings */
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 15px;
-    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
-    background: linear-gradient(135deg, #0e2539, #2d4b60, #0e2539);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #FF5733;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.5); /* Same as the Movies Store header */
+    backdrop-filter: blur(10px);
+    padding: 20px 30px;
+    border-radius: 25px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
   }
 
   .about-container p {
-    max-width: 800px;
-    font-size: 1.4rem; /* Increased font size */
+    max-width: 900px;
+    font-size: 1.4rem;
     font-weight: 300;
-    margin-bottom: 15px;
-    line-height: 1.6;
-    text-align: center; /* Centered text */
-    background-color: rgba(0, 0, 0, 0.6); /* Transparent black background */
-    padding: 30px; /* Increased padding for more space around text */
-    border-radius: 8px; /* Rounded corners */
+    margin-bottom: 25px;
+    line-height: 1.8;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
   }
 
   .about-container p strong {
     font-weight: bold;
+    color: #FF5733;
   }
 
   .about-image img {
     width: 100%;
-    max-width: 500px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Added drop shadow to the image */
-    margin-top: 20px;
+    max-width: 600px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    margin-top: 25px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+  }
+
+  .about-image img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.7);
   }
 
   .about-container hr {
-    width: 50%;
-    border-top: 2px solid white;
-    margin-bottom: 20px;
-    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+    width: 60%;
+    border-top: 2px solid #FF5733;
+    margin: 25px 0;
+    box-shadow: 0px 0px 15px rgba(255, 87, 51, 0.4);
   }
 </style>
 

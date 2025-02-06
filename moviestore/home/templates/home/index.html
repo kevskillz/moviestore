@@ -4,137 +4,172 @@
 
 <style>
   body {
-    background: linear-gradient(135deg, #4b0000, #8b0000);
+    background: linear-gradient(135deg, #2c3e50, #34495e);
     color: white;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
   }
+
+  /* Masthead Section */
   .masthead {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 60px 20px;
+    padding: 80px 20px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-bottom: 5px solid #C70039;
   }
+
   .masthead h2 {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-shadow: 2px 7px 4px rgba(0, 0, 0, 0.7);
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #FF5733;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
   }
+
   .masthead p {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     opacity: 0.9;
-    text-shadow: 1px 7px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 3px 5px rgba(0, 0, 0, 0.6);
+    font-weight: 500;
   }
+
+  /* Welcome Section */
   .welcome-section {
     text-align: center;
-    padding: 40px 20px;
+    padding: 60px 20px;
   }
+
   .welcome-section h4 {
-    font-size: 2rem;
-    font-weight: bold;
-    text-shadow: 1px 7px 5px rgba(0, 0, 0, 0.7);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #C70039;
+    text-shadow: 1px 3px 5px rgba(0, 0, 0, 0.5);
   }
+
+  /* Search Bar Section */
   .search-section {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 40px;
   }
+
   .search-bar {
-    max-width: 800px;
+    max-width: 850px;
     width: 100%;
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    border-radius: 50px;
   }
+
   .search-bar input {
     height: 60px;
     font-size: 1.25rem;
     padding: 0.75rem;
-    width: 75%;
-    border-radius: 5px 0 0 5px;
+    width: 70%;
+    border-radius: 50px 0 0 50px;
     border: 2px solid #fff;
     outline: none;
-    background-color: white !important;
+    background-color: #ffffff;
     transition: all 0.3s ease-in-out;
   }
+
   .search-bar input:focus, .search-bar input:active {
-    background-color: white !important;
+    background-color: #f7f7f7;
     width: 85%;
     border-color: #FF5733;
     box-shadow: 0 0 10px rgba(255, 87, 51, 0.6);
   }
+
   .search-bar button {
     height: 60px;
     font-size: 1.25rem;
-    width: 20%;
-    background: linear-gradient(180deg, #0e2539, #000000, #0b273a);
+    width: 30%;
+    background: #C70039;
     color: white;
     border: none;
-    border-radius: 0 5px 5px 0;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease;
+    border-radius: 0 50px 50px 0;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   }
+
   .search-bar button:hover {
-    background-color: #000000;
+    background-color: #900C3F;
     transform: scale(1.1);
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
   }
+
   .search-bar button:active {
     transform: scale(0.95);
   }
+
+  /* Button Section */
   .cool-button {
     display: inline-block;
     margin-top: 30px;
-    padding: 15px 40px;
-    font-size: 1.5rem;
+    padding: 18px 50px;
+    font-size: 1.6rem;
     background: linear-gradient(135deg, #FF5733, #C70039);
     color: white;
     text-align: center;
     text-decoration: none;
     border-radius: 50px;
-    box-shadow: 0 4px 15px rgba(255, 87, 51, 0.3);
+    box-shadow: 0 4px 15px rgba(255, 87, 51, 0.4);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   }
+
   .cool-button:hover {
     transform: scale(1.1);
     box-shadow: 0 6px 25px rgba(255, 87, 51, 0.5);
   }
+
   .cool-button:active {
     transform: scale(0.95);
   }
+
+  /* Featured Movies Section */
   .movie-container {
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin-top: 20px;
+    margin-top: 40px;
     flex-wrap: wrap;
   }
+
   .movie-card {
     text-align: center;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 200px;
-    margin-bottom: 20px;
-    transition: transform 0.3s ease-in-out;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    width: 250px;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
   }
+
   .movie-card img {
-    width: 100%;  /* Make the image fill the width of its container */
-    height: 300px;  /* Set a fixed height for all images */
-    object-fit: cover;  /* This ensures that the image is cropped to fit without distortion */
-    border-radius: 5px;
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
   }
+
   .movie-card h5 {
-    font-family: 'Arial', sans-serif;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 15px;
     position: relative;
     z-index: 1;
   }
+
   .movie-card h5::before {
     content: "";
     position: absolute;
@@ -142,13 +177,20 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.4);
     z-index: -1;
-    border-radius: 5px;
+    border-radius: 8px;
   }
+
   .movie-card h5:hover {
-    color: #C70039;
+    color: #FF5733;
     text-decoration: underline;
+  }
+
+  /* Animations */
+  .movie-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
   }
 </style>
 

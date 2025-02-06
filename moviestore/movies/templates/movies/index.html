@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+
 <style>
   body {
-    background: linear-gradient(135deg, #4b0000, #8b0000); /* Red gradient background */
+    background: linear-gradient(135deg, #2c3e50, #34495e); /* Matching gradient background */
     color: white;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif; /* Applied 'Poppins' font style */
+    margin: 0;
+    padding: 0;
   }
 
   .container {
@@ -13,19 +16,22 @@
     padding-bottom: 20px;
   }
 
-  /* Header Styling */
-  h2 {
-    font-family: 'Arial', sans-serif;
-    font-size: 3rem; /* Keeping the same size */
-    font-weight: bold;
+  /* Updated Header Styling for "List of Movies" */
+  .movies-title {
+    font-family: 'Poppins', sans-serif; /* Applied 'Poppins' font style */
+    font-size: 3.5rem;
+    font-weight: 700;  /* Ensuring the header is bold */
     text-align: center;
     margin-bottom: 20px;
-    color: white;
-    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6); /* Add shadow for a more polished look */
-    background: linear-gradient(135deg, #0e2539, #2d4b60, #0e2539); /* Gradient background for the header */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Add subtle shadow around the header */
+    color: #FF5733; /* Matching the header color */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8); /* Added text shadow */
+    background: rgba(0, 0, 0, 0.5); /* Transparent background with blur */
+    backdrop-filter: blur(10px); /* Adding blur effect */
+    padding: 20px 30px;
+    border-radius: 25px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Added box shadow for depth */
+    width: 100%;  /* Ensuring the header takes full width */
+    max-width: 100%;  /* Ensures it doesn't get constrained */
   }
 
   /* Card Styling for Movies */
@@ -46,7 +52,7 @@
   }
 
   .btn-dark {
-    background-color: #000;
+    background-color: #C70039; /* Adjusted color to match button color */
     border: none;
     font-size: 1.1rem;
     padding: 10px 20px;
@@ -87,7 +93,7 @@
 
   /* The search button */
   .btn-search {
-    background-color: #000; /* Black background for the button */
+    background-color: #C70039; /* Matching button color */
     color: white;  /* White text color */
     border: none;
     border-radius: 0 30px 30px 0; /* Curved right corners */
@@ -100,7 +106,7 @@
   .btn-search:hover {
     transform: scale(1.05);  /* Raise the button */
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* Glowing effect */
-    background-color: #333; /* Darker shade on hover */
+    background-color: #900C3F; /* Darker shade on hover */
   }
 
   .btn-search:active {
@@ -125,8 +131,8 @@
   <div class="container">
     <div class="row mt-3">
       <div class="col mx-auto mb-3">
-        <!-- Updated Movie List Header with Gradient and Shadow -->
-        <h2 class="display-4 text-center">List of Movies</h2>
+        <!-- Apply the new style for the header -->
+        <h2 class="movies-title">List of Movies</h2> <!-- Updated title with the new styling -->
         <hr />
         <form method="GET" class="search-form">
           <div class="input-group">

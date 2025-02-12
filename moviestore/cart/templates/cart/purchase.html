@@ -1,14 +1,65 @@
 {% extends 'base.html' %}
 {% block content %}
+<!-- Include Google Fonts for a premium look -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    background: linear-gradient(135deg, #4b0000, #8b0000);
+    font-family: 'Roboto Slab', serif;
+    color: white;
+  }
+
+  .container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
+    background: linear-gradient(135deg, #0e2539, #2d4b60, #0e2539);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 30px;
+  }
+
+  hr {
+    border-color: #FF5733;
+    margin: 20px auto;
+    width: 60%;
+    box-shadow: 0px 0px 15px rgba(255, 87, 51, 0.4);
+  }
+
+  p {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #f5f5dc;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  p b {
+    color: #28A745;
+  }
+</style>
+
 <div class="p-3">
   <div class="container">
     <div class="row mt-3">
       <div class="col mx-auto mb-3">
         <h2>Purchase Completed</h2>
         <hr />
-        <p>Congratulations, purchase completed. Order
-          number is: <b>#{{ template_data.order_id }}</b>
-        </p>
+        <p>Congratulations, your purchase has been completed! Your order number is: <b>#{{ template_data.order_id }}</b></p>
       </div>
     </div>
   </div>
